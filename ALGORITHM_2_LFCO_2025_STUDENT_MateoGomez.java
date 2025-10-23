@@ -1,13 +1,6 @@
 import java.util.*;
 
-/**
- * Implementación de un PDA determinista simple para L = { a^n b^n }.
- * - Pila inicial: símbolo '$' (marca de fondo)
- * - Para cada 'a' leída: push('A')
- * - Para cada 'b' leída: pop('A') (si no hay 'A' -> rechazo)
- * - No se permiten 'a' después de empezar a leer 'b' (regla de forma a^n b^n)
- * - Aceptación: al terminar la entrada la pila sólo tiene '$'
- */
+
 public class ALGORITHM_2_LFCO_2025_STUDENT_MateoGomez {
 
     public static class PDAResult {
@@ -22,7 +15,7 @@ public class ALGORITHM_2_LFCO_2025_STUDENT_MateoGomez {
     public static PDAResult analyze(String input) {
         Deque<Character> stack = new ArrayDeque<>();
         List<String> trace = new ArrayList<>();
-        // Inicialización
+  
         stack.push('$');
         trace.add("init: push $ (stack bottom marker)");
 
@@ -54,7 +47,7 @@ public class ALGORITHM_2_LFCO_2025_STUDENT_MateoGomez {
             }
         }
 
-        // Al terminar, aceptar si sólo queda el marcador $
+      
         if (stack.size() == 1 && stack.peek() == '$') {
             trace.add("end of input: stack = " + stackToString(stack) + " -> accept");
             return new PDAResult(true, trace);
@@ -72,7 +65,7 @@ public class ALGORITHM_2_LFCO_2025_STUDENT_MateoGomez {
 
     public static void main(String[] args) {
         System.out.println("=== Algorithm 2: PDA ===");
-        // Usamos Algorithm_1 para obtener ejemplos
+
         List<String> examples = ALGORITHM_1_LFCO_2025_STUDENT_MateoGomez.generateAccepted(3);
         examples.addAll(ALGORITHM_1_LFCO_2025_STUDENT_MateoGomez.generateRejected());
 
@@ -84,3 +77,4 @@ public class ALGORITHM_2_LFCO_2025_STUDENT_MateoGomez {
         }
     }
 }
+
