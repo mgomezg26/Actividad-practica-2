@@ -1,31 +1,16 @@
  # Activitie/assignment-practice-2
 ### Course / Assignment: Automata & Formal Languages — PDA & Derivations
 
-Group members (FULL NAMES — please replace the placeholders)
+**Group members:**
 
-Alice Fullname (Student ID: 000000)
+Mateo Gomez Giraldo
 
-Bob Fullname (Student ID: 000001)
+---
 
-Carlos Fullname (Student ID: 000002)
+## Implementation of the topic
 
-⚠️ Replace the three lines above with the real, full names of your group members before submitting.
-
-Summary
-
-This project implements the examples requested in the assignment PDF:
-
-A small generator of example strings for the grammar 
-𝑆
-→
-𝑎
-𝑆
-𝑏
-∣
-𝜀
-S→aSb∣ε (strings in the language 
-𝐿
-=
+- A small generator of example strings for the grammar 𝑆 → 𝑎𝑆𝑏 ∣ 𝜀
+𝐿=
 {
 𝑎
 𝑛
@@ -36,86 +21,49 @@ S→aSb∣ε (strings in the language
 ≥
 0
 }
-L={a
-n
-b
-n
-∣n≥0} and some rejected examples).
+(and some rejected examples).
 
-A deterministic pushdown automaton (PDA) simulator that recognizes 
-𝑎
-𝑛
-𝑏
-𝑛
-a
-n
-b
-n
-.
+- A deterministic pushdown automaton (PDA) simulator that recognizes 
+𝑎^𝑛 𝑏^𝑛
 
-Construction and display of a leftmost derivation and a derivation tree for accepted strings.
+- Construction and display of a leftmost derivation and a derivation tree for accepted strings.
 
 The implementation is in Java and is split across three runnable classes (each with its own main), so you can run each part independently, or compile all and run whichever main you need.
 
-Versions (environment / tools)
+## Versions (environment / tools)
 
 The following versions were used and tested during development. If you have other compatible versions the code should still work, but we recommend the listed ones.
 
 Operating system (example tested):
+- Windows 10 / Windows 11 (64-bit)
+ 
 
-Windows 10 / Windows 11 (64-bit)
 
-macOS Monterey (12+)
+Programming language:
 
-Ubuntu 20.04 LTS
+- Java SE (OpenJDK) 11 or 17. Use at least Java 11.
 
-Programming language / runtime:
+Run tools:
 
-Java SE (OpenJDK) 11 or 17 — both are supported. Use at least Java 11.
+- javac (Java compiler)
 
-Build / run tools:
+Optional recommended and the tool that I use:
 
-javac (Java compiler)
+- Visual Studio Code + Java Extension Pack
 
-java (Java runtime)
-
-Optional recommended tools / editors:
-
-IntelliJ IDEA (Community)
-
-Visual Studio Code + Java Extension Pack
-
-Git (for version control)
-
-Project structure
-/ (project root)
-├─ ALGORITHM_1_LFCO_2025_ABC.java   # generator of accepted/rejected examples
-├─ ALGORITHM_2_LFCO_2025_ABC.java   # PDA simulator with trace/log
-├─ ALGORITHM_3_LFCO_2025_ABC.java   # leftmost derivation and parse tree builder/print
-├─ README.md                        # this file
-
+## Project structure
 
 If you rename files to include your initials, keep the class names inside the files consistent or update them accordingly.
 
-Compilation & Running (detailed instructions)
+## Compilation & Running (instructions)
 
-Open a terminal (PowerShell, Terminal, bash) and navigate to the directory with the .java files.
+You got to save the three files in the same folder
 
-1) Compile all Java files
-javac ALGORITHM_1_LFCO_2025_ABC.java ALGORITHM_2_LFCO_2025_ABC.java ALGORITHM_3_LFCO_2025_ABC.java
+1) Run each part in order from 1 to 3
+   
+   Algorithm 1: generate examples
 
-
-This will produce .class files in the same folder (e.g. ALGORITHM_1_LFCO_2025_ABC.class).
-
-If you are using Java 11+ and want to compile with --release:
-
-javac --release 11 ALGORITHM_1_LFCO_2025_ABC.java ALGORITHM_2_LFCO_2025_ABC.java ALGORITHM_3_LFCO_2025_ABC.java
-
-2) Run each part
-
-Algorithm 1: generate examples
-
-java ALGORITHM_1_LFCO_2025_ABC
+   java ALGORITHM_1_LFCO_2025_ABC
 
 
 Expected behavior: prints accepted example strings ("", "ab", "aabb", ...) and some rejected strings.
