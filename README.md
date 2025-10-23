@@ -68,73 +68,22 @@ You got to save the three files in the same folder
 
 Expected behavior: prints accepted example strings ("", "ab", "aabb", ...) and some rejected strings.
 
-Algorithm 2: PDA simulator with trace
+2) Algorithm 2: PDA simulator with trace
 
-java ALGORITHM_2_LFCO_2025_ABC
+   java ALGORITHM_2_LFCO_2025_ABC
 
 
 Expected behavior: For several example inputs the program prints a step-by-step trace of stack operations and whether the string is ACCEPTED or REJECTED.
 
-Algorithm 3: derivation and parse tree
+3) Algorithm 3: derivation and parse tree
 
-java ALGORITHM_3_LFCO_2025_ABC
-
+   java ALGORITHM_3_LFCO_2025_ABC
 
 Expected behavior: For accepted inputs, prints the leftmost derivation forms (sentential forms) and then a textual parse tree with indentation.
 
-Example output (short excerpt)
+---
 
-Running java ALGORITHM_1_LFCO_2025_ABC might print:
-
-=== Algorithm 1: Generación de ejemplos ===
-Cadenas aceptadas (ejemplos):
-''
-'ab'
-'aabb'
-'aaabbb'
-...
-
-Cadenas rechazadas (ejemplos):
-'a'
-'b'
-'abb'
-'aba'
-
-
-Running java ALGORITHM_2_LFCO_2025_ABC might show a trace such as:
-
-Input: 'aabb'
-  init: push $ (stack bottom marker)
-  start processing input: 'aabb'
-  read 'a' : push 'A' (stack now: A$)
-  read 'a' : push 'A' (stack now: AA$)
-  read 'b' : pop 'A' (stack now: A$)
-  read 'b' : pop 'A' (stack now: $)
-end of input: stack = $ -> accept
-Result: ACCEPTED
-
-
-Running java ALGORITHM_3_LFCO_2025_ABC prints the leftmost derivation and a tree for 'aabb':
-
-  -> Aceptado. Derivación leftmost:
-     S
-     a S b
-     a a S b b
-     a a ε b b
-     a a  b b   (final string)
-  -> Árbol de derivación:
-S
-  a
-  S
-    a
-    S
-      ε
-    b
-  b
-
-Notes & implementation details
-
-The grammar implemented is: S -> a S b | ε. The code assumes alphabet {a, b} only and enforces that all a must appear before any b.
+## Notes & implementation details
 
 The PDA implemented is deterministic (push on a, pop on b, reject invalid symbols or incorrect order).
 
@@ -142,44 +91,7 @@ The leftmost derivation routine constructs sentential forms by repeatedly applyi
 
 The parse tree printer uses indentation to show tree structure; it is intended for human inspection, not for automated parsing.
 
-How to adapt / integrate
+---
 
-To integrate into a larger project or a single main, you can import the classes or copy their methods into one file and call them in sequence:
-
-Generate candidate strings (Algorithm 1),
-
-Test each using PDA (Algorithm 2),
-
-For accepted strings, print derivations and trees (Algorithm 3).
-
-If you want a GUI or web front-end, consider building a simple CLI or a small Swing/JavaFX app, or expose the logic via a REST API (requires additional libraries).
-
-Troubleshooting
-
-javac not found: Install JDK (OpenJDK or Oracle JDK) and ensure JAVA_HOME and PATH are set.
-
-Version mismatch/runtime errors: Use java -version to confirm your runtime. If you compiled with target 11+, ensure your runtime is Java 11+.
-
-Encoding or console issues: If special characters look wrong, ensure your terminal uses UTF-8 encoding.
-
-Testing suggestions
-
-Test edge cases: the empty string "" (should be accepted), single a or b (rejected), aaabbb (accepted), aab (rejected), aba (rejected).
-
-Add unit tests with JUnit if you want automated testing (not included in this submission).
-
-License & contact
-
-License: You may include your preferred license (e.g., MIT).
-
-Contact / authors: Replace the group members section above with real names and contact emails if the instructor requires it.
-
-If you want, I can:
-
-produce a ready-to-commit README.md file with your exact group member names (tell me the full names and optionally student IDs), or
-
-produce a single Main.java that runs the entire pipeline in sequence, or
-
-add a small run.sh / run.bat script to automate compilation and execution.
-
-Which of those would you like me to generate right now?
+## The video of the operation of the codes
+**Video:** 
